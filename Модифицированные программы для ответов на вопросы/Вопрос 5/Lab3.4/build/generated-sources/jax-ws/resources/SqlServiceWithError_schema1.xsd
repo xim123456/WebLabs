@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://Service/" xmlns:tns="http://Service/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="BadFormatException" type="tns:BadFormatException"/>
+
+  <xs:element name="DeleteData" nillable="true" type="tns:deleteData"/>
+
+  <xs:element name="DeleteDataResponse" nillable="true" type="tns:deleteDataResponse"/>
+
+  <xs:element name="IdNotFoundException" type="tns:IdNotFoundException"/>
+
+  <xs:element name="InsertData" nillable="true" type="tns:insertData"/>
+
+  <xs:element name="InsertDataResponse" nillable="true" type="tns:insertDataResponse"/>
+
+  <xs:element name="SelectData" nillable="true" type="tns:selectData"/>
+
+  <xs:element name="SelectDataResponse" nillable="true" type="tns:selectDataResponse"/>
+
+  <xs:element name="UpdateData" nillable="true" type="tns:updateData"/>
+
+  <xs:element name="UpdateDataResponse" nillable="true" type="tns:updateDataResponse"/>
+
+  <xs:element name="downloadImage" type="tns:downloadImage"/>
+
+  <xs:element name="downloadImageResponse" type="tns:downloadImageResponse"/>
+
+  <xs:element name="uploadImage" type="tns:uploadImage"/>
+
+  <xs:element name="uploadImageResponse" type="tns:uploadImageResponse"/>
+
+  <xs:complexType name="downloadImage">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="downloadImageResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="uploadImage">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="uploadImageResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateData">
+    <xs:sequence>
+      <xs:element name="data" type="tns:simpleData" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="simpleData">
+    <xs:sequence>
+      <xs:element name="fild1" type="xs:string" minOccurs="0"/>
+      <xs:element name="fild2" type="xs:string" minOccurs="0"/>
+      <xs:element name="fild3" type="xs:string" minOccurs="0"/>
+      <xs:element name="fild4" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BadFormatException">
+    <xs:sequence>
+      <xs:element name="faultInfo" type="tns:errorBean" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="errorBean">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IdNotFoundException">
+    <xs:sequence>
+      <xs:element name="faultInfo" type="tns:errorBean" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="selectData">
+    <xs:sequence>
+      <xs:element name="data" type="tns:simpleData" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="selectDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:simpleData" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertData">
+    <xs:sequence>
+      <xs:element name="data" type="tns:simpleData" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteData">
+    <xs:sequence>
+      <xs:element name="idData" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteDataResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
